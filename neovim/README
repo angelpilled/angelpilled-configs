@@ -1,0 +1,16 @@
+neovim configurations
+
+Requirements:
++ neovim
++ git
++ yarn
++ nodejs
++ VimPlug (https://github.com/junegunn/vim-plug)
+
+Configuration installation
+
+Append the desired lines of init.vim to your existing init.vim file (or copy the file to /home/user/.config/nvim). Navigate to the /home/user/.local/share/nvim/plugged/coc.nvim/ directory, and execute the "yarn install", then "yarn build" command.
+
+Open nvim anywhere, type in ":PlugInstall" to install the plugins, then ":CocInstall coc-pairs", this will install bracket pairing. For C auto completion, type in ":CocInstall coc-clangd", then open a .c file in with neovim. After that, type in ":CocCommand clangd.install" to install C auto completion.
+
+I disabled clangd's auto formatting, as it was quite annoying while writing code. This line can be found as `"inlayHint.enable": false` in the coc-settings.json file. Simply append that line or copy this file to your /home/user/.config/nvim/ directory. Clangd inlayHints will be disabled now.
