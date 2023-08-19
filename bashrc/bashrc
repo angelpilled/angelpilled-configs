@@ -1,0 +1,14 @@
+# ~/.bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias neofetch='neofetch | lolcat'
+alias cow='fortune | cowsay'
+alias cpc='xclip -sel c <'
+alias c='clear'
+alias nv='nvim'
+
+PS1='\[\e[38;5;32m\][\[\e[38;5;205m\]\u\[\e[38;5;198m\]@\[\e[38;5;33m\]\h \[\e[38;5;213m\]\w\[\e[38;5;33m\]]\[\e[38;5;105m\]\\$ \[\e[0m\]'
