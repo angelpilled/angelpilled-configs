@@ -1,0 +1,5 @@
+Server = https://artix.wheaton.edu/repos/$repo/os/$arch
+Server = https://mirror.clarkson.edu/artix-linux/repos/$repo/os/$arch
+Server = https://us-mirror.artixlinux.org/$repo/os/$arch
+Server = http://www.nylxs.com/mirror/repos/$repo/os/$arch
+Server = https://mirrors.nettek.us/artix-linux/$repo/os/$arch

@@ -1,0 +1,2 @@
+Working mirrorlist for Artix Linux
+Put the mirrorlist text file to /etc/pacman.d/mirrorlist
