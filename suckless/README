@@ -20,9 +20,17 @@ dwm-statuscolors-20220322-bece862.diff
 dwm-steam-6.2.diff
 dwm-unmanaged-6.4.diff
 dwm-uselessgap-20211119-58414bee958f2.diff
+
 st-alpha-20220206-0.8.5.diff
 st-delkey-0.6.diff
 st-scrollback-0.8.5.diff
+
+dmenu-highlight-20201211-fcdc159.diff
+dmenu-border-20230512-0fe460d.diff
+dmenu-lineheight-5.2.diff
+dmenu-center-5.2.diff
+dmenu-numbers-20220512-28fb3e2.diff
+dmenu-grid-4.9.diff
 
 You must have the Xorg display server installed!
 Append "exec dwm" as the last line in your .xinitrc file to start after running "startx".
