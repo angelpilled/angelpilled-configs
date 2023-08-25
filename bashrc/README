@@ -3,7 +3,7 @@ Bash Prompt generated with: https://bash-prompt-generator.org/
 
 Config includes aliases, colored name.
 Packages to be installed for aliases:
-neofetch, lolcat, fortune-mod, cowsay, xclip, neovim
+neofetch, lolcat, fortune-mod, cowsay, xclip, neovim, yt-dlp, xampp
 
 Notes:
 The cpc command (aka the xclip alias) copies the content of a text file over to your clipboard. Syntax example: cpc file.txt
