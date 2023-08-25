@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc $1 -o $1.o && ./$1.o && echo -e && rm -rf ./$1.o
