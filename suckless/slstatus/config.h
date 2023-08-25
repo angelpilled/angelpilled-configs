@@ -14,17 +14,16 @@ static const char unknown_str[] = "n/a";
  *
  * battery_perc        battery percentage              battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
- * battery_remaining   battery remaining HH:MM         battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * battery_state       battery charging state          battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
- * cat                 read arbitrary file             path
- * cpu_freq            cpu frequency in MHz            NULL
+ * battery_remaining   battery remaining HH:MM         battery name (BAT0)
+ *                                                     NULL on OpenBSD/FreeBSD
  * cpu_perc            cpu usage in percent            NULL
+ * cpu_freq            cpu frequency in MHz            NULL
  * datetime            date and time                   format string (%F %T)
  * disk_free           free disk space in GB           mountpoint path (/)
  * disk_perc           disk usage in percent           mountpoint path (/)
- * disk_total          total disk space in GB          mountpoint path (/)
+ * disk_total          total disk space in GB          mountpoint path (/")
  * disk_used           used disk space in GB           mountpoint path (/)
  * entropy             available entropy               NULL
  * gid                 GID of current user             NULL
@@ -59,15 +58,16 @@ static const char unknown_str[] = "n/a";
  * uptime              system uptime                   NULL
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
- *                                                     NULL on OpenBSD/FreeBSD
- * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
+ * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ uptime,        "^c#d9dbda^ up %s ",        NULL           }, 
-	{ ram_used,		 "^c#d5d5bb^ mem %s",        NULL           },
-	{ ram_free,		 "^c#d5d5bb^%s ",            NULL           },
-	{ datetime,		 "^c#c8c7dc^ %s ",           "%F %T" },
+	//{ datetime, "%s",           "%F %T" },
+	//{ wifi_perc, "/W: %s%%  ", "wlp1s0f0u8" },	
+	{ run_command, " ^b#242021^^c#1eadd9^ 󰕾 :%4s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+	{ cpu_perc, " ^b#61afef^^c#000000^ CPU  %s%% ", NULL	      },
+	//{ cpu_freq, "// %s/4.2G] ", NULL             },
+	{ ram_used, " ^b#32363e^^c#61afef^ RAM  %s / 16Gi ", NULL	      },
+	{ datetime, " ^b#98c379^^c#000000^ %s ",           "%A, %b %d %r" },
 };
-
