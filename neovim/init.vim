@@ -20,7 +20,19 @@ Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple c
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/neoclide/coc-pairs'
+Plug 'https://github.com/numToStr/Comment.nvim' " Neovim Commenting
 
 call plug#end()
 
+lua require('Comment').setup()
+
 nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <C-Up> :t-<CR>
+nnoremap <C-Down> :t.<CR>
+nnoremap <C-l> :noh<CR>
+nnoremap <C-i> :move -2<CR>
+nnoremap <C-k> :move +1<CR>
+
+autocmd BufRead * set nowrap
