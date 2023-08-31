@@ -6,6 +6,7 @@ Requirements:
 + gcc
 + webkit2gtk
 + gcr
++ libavif
 
 Optional (you can change these in the config.h files):
 + ttf-profont-nerd
