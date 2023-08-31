@@ -14,3 +14,6 @@ sudo make clean install
 
 cd ../slstatus
 sudo make clean install
+
+cd ../surf
+sudo make clean install

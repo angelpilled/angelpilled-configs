@@ -3,6 +3,9 @@ https://suckless.org/
 
 Requirements:
 + make
++ gcc
++ webkit2gtk
++ gcr
 
 Optional (you can change these in the config.h files):
 + ttf-profont-nerd
