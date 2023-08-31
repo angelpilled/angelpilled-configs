@@ -1,3 +1,5 @@
+/* CONFIG FILE FOR PC! NO BATTERY STATUS INCLUDED. */
+
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
