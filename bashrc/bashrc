@@ -11,6 +11,10 @@ alias cpc='xclip -sel c <'
 alias c='clear'
 alias nv='nvim'
 alias yt-dlp-mp3='yt-dlp -x --audio-format mp3'
+alias yt-dlp-mp4='yt-dlp -x --format mp4 -k'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+alias bad-apple='cvlc -V aa -q --no-video-title-show bad-apple.mp4'
 
 PS1='\[\e[38;5;32m\][\[\e[38;5;205m\]\u\[\e[38;5;198m\]@\[\e[38;5;33m\]\h \[\e[38;5;213m\]\w\[\e[38;5;33m\]]\[\e[38;5;105m\]\\$ \[\e[0m\]'
+
+eval "$(thefuck --alias)"
