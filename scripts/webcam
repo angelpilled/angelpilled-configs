@@ -1,0 +1,2 @@
+#!/bin/bash
+ffplay -fflags nobuffer -avioflags direct -i /dev/video0
