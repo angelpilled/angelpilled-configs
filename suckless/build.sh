@@ -17,3 +17,6 @@ sudo make clean install
 
 cd ../surf
 sudo make clean install
+
+cd ../slock
+sudo make clean install
