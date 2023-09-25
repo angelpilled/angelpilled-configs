@@ -5,7 +5,7 @@
 :set smarttab
 :set softtabstop=4
 :set mouse=a
-
+:colorscheme PaperColor
 
 call plug#begin()
 
