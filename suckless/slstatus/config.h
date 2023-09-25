@@ -1,16 +1,12 @@
-/* CONFIG FILE FOR PC! NO BATTERY STATUS INCLUDED. */
-
+/* CONFIG FILE FOR THINKPAD X260! BATTERY STATUS INCLUDED! */
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
-
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
-
 /* maximum output string length */
 #define MAXLEN 2048
-
 /*
  * function            description                     argument (example)
  *
@@ -67,9 +63,12 @@ static const struct arg args[] = {
 	/* function format          argument */
 	//{ datetime, "%s",           "%F %T" },
 	//{ wifi_perc, "/W: %s%%  ", "wlp1s0f0u8" },	
+	{ battery_perc, "^b#d62b2b^^c#000000^ BAT0:%s%% ", "BAT0"     },
+	{ battery_perc, "^b#2d90d6^^c#000000^ BAT1:%s%% ", "BAT1"     },
+	{ battery_state, "%s ", "BAT0"    },
 	{ run_command, " ^b#242021^^c#1eadd9^ 󰕾 :%4s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
 	{ cpu_perc, " ^b#61afef^^c#000000^ CPU  %s%% ", NULL	      },
 	//{ cpu_freq, "// %s/4.2G] ", NULL             },
-	{ ram_used, " ^b#32363e^^c#61afef^ RAM  %s / 16Gi ", NULL	      },
+	{ ram_used, " ^b#32363e^^c#61afef^ RAM  %s / 8Gi ", NULL	      },
 	{ datetime, " ^b#98c379^^c#000000^ %s ",           "%A, %b %d %r" },
 };
