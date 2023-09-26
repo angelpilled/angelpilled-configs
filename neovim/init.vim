@@ -5,7 +5,6 @@
 :set smarttab
 :set softtabstop=4
 :set mouse=a
-:colorscheme PaperColor
 
 call plug#begin()
 
@@ -26,6 +25,8 @@ call plug#end()
 
 lua require('Comment').setup()
 
+:colorscheme PaperColor
+
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-s> :w<CR>
@@ -35,4 +36,4 @@ nnoremap <C-l> :noh<CR>
 nnoremap <C-i> :move -2<CR>
 nnoremap <C-k> :move +1<CR>
 
-autocmd BufRead * set nowrap
+autocmd BufEnter * set nowrap
