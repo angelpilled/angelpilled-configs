@@ -5,6 +5,7 @@
 :set smarttab
 :set softtabstop=4
 :set mouse=a
+:set clipboard+=unnamedplus
 
 call plug#begin()
 
@@ -36,6 +37,11 @@ nmap <C-l> :noh<CR>
 nmap <C-i> :move -2<CR>
 nmap <C-k> :move +1<CR>
 nmap <C-x> dd
+
+nmap <C-c> y
+nmap <C-b> yy
+nmap <C-v> p
+
 nmap <C-d> :wq!<CR>
 
 autocmd BufEnter * set nowrap
