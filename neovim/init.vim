@@ -27,13 +27,15 @@ lua require('Comment').setup()
 
 :colorscheme PaperColor
 
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-s> :w<CR>
-nnoremap <C-Up> :t-<CR>
-nnoremap <C-Down> :t.<CR>
-nnoremap <C-l> :noh<CR>
-nnoremap <C-i> :move -2<CR>
-nnoremap <C-k> :move +1<CR>
+nmap <C-t> :NERDTreeToggle<CR>
+nmap <C-f> :NERDTreeFocus<CR>
+nmap <C-s> :w<CR>
+nmap <C-Up> :t-<CR>
+nmap <C-Down> :t.<CR>
+nmap <C-l> :noh<CR>
+nmap <C-i> :move -2<CR>
+nmap <C-k> :move +1<CR>
+nmap <C-x> dd
+nmap <C-d> :wq!<CR>
 
 autocmd BufEnter * set nowrap
