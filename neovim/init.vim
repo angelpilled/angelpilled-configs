@@ -42,6 +42,6 @@ nmap <C-c> y
 nmap <C-b> yy
 nmap <C-v> p
 
-nmap <C-d> :wq!<CR>
+nmap <C-d> :q!<CR>
 
 autocmd BufEnter * set nowrap
