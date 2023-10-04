@@ -1,0 +1,83 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+#
+
+# slock
+"slock"
+Control + Alt + Delete
+
+# Suspend and slock
+"systemctl --user start slock@angelpilled.service && slock"
+Control + Alt + End
+
+# Brightness Up
+"brightnessctl set 10%+"
+Control + F6
+
+# Brightness Down
+"brightnessctl set 10%-"
+Control + F5
+
+# Increase Volume
+"amixer set Master 5%+"
+Control + F3
+
+# Decrease Volume
+"amixer set Master 5%-"
+Control + F2
+
+# Mute Volume
+"amixer set Master toggle"
+Control + F1
+
+# Benagyítás (Win+ó)
+"sleep 0.1 && xdotool key Control_L+KP_Add"
+Mod4 + oacute
+
+# Kinagyítás (Win+ü)
+"sleep 0.1 && xdotool key Control_L+KP_Subtract"
+Mod4 + udiaeresis
+
+# Csillag írása (Win+BalAlt+ö)
+"sleep 0.1 && xdotool key KP_Multiply"
+Mod4 + Alt + odiaeresis
+
+# Plusz írása (Win+BalAlt+ó)
+"sleep 0.1 && xdotool key KP_Add"
+Mod4 + Alt + oacute
+
+# Minusz írása (Win+BalAlt+ü)
+"sleep 0.1 && xdotool key KP_Subtract"
+Mod4 + Alt + udiaeresis
+
+#"xbindkeys_show" 
+#  control+shift + q
+
+# set directly keycode (here control + f with my keyboard)
+#"xterm"
+#  c:41 + m:0x4
+
+# specify a mouse button
+#"xterm"
+#  control + b:2
+
+#"xterm -geom 50x20+20+20"
+#   Shift+Mod2+alt + s
+#
+## set directly keycode (here control+alt+mod2 + f with my keyboard)
+#"xterm"
+#  alt + c:0x29 + m:4 + mod2
+#
+## Control+Shift+a  release event starts rxvt
+#"rxvt"
+#  release+control+shift + a
+#
+## Control + mouse button 2 release event starts rxvt
+#"rxvt"
+#  Control + b:2 + Release
+
+##################################
+# End of xbindkeys configuration #
+##################################
