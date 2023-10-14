@@ -1,4 +1,5 @@
 :set number
+:set relativenumber
 :set autoindent
 :set tabstop=4
 :set shiftwidth=4
@@ -41,6 +42,9 @@ nmap <C-x> dd
 nmap <C-c> y
 nmap <C-b> yy
 nmap <C-v> p
+
+nmap <C-w> :+
+nmap <C-q> :-
 
 nmap <C-d> :q!<CR>
 
