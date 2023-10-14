@@ -43,8 +43,8 @@ nmap <C-c> y
 nmap <C-b> yy
 nmap <C-v> p
 
-nmap <C-w> :+
-nmap <C-q> :-
+nmap <C-w> :-
+nmap <C-e> :+
 
 nmap <C-d> :q!<CR>
 
