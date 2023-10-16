@@ -8,8 +8,11 @@ Requirements:
 + gcr
 + libavif
 
+IMPORTANT!
+If you decide to change fonts, they must be monospaced, otherwise they'll show up with weird letter spacing.
+
 Optional (you can change these in the config.h files):
-+ ttf-profont-nerd
++ ttf-dejavu
 
 To build the files, you must either
 1) run the build.sh script (this will build all the suckless softwares individually, requires the make package)
