@@ -27,7 +27,7 @@ call plug#end()
 
 lua require('Comment').setup()
 
-:colorscheme PaperColor
+:colorscheme challenger_deep
 
 nmap <C-t> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFocus<CR>
