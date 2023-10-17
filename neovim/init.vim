@@ -38,6 +38,7 @@ nmap <C-l> :noh<CR>
 nmap <C-i> :move -2<CR>
 nmap <C-k> :move +1<CR>
 nmap <C-x> dd
+nmap <C-f> /
 
 nmap <C-c> y
 nmap <C-b> yy
