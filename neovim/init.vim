@@ -27,11 +27,11 @@ call plug#end()
 
 lua require('Comment').setup()
 
+" Editor Theme
 :colorscheme challenger_deep
 
 nmap <C-t> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFocus<CR>
-nmap <C-s> :w<CR>
 nmap <C-Up> :t-<CR>
 nmap <C-Down> :t.<CR>
 nmap <C-l> :noh<CR>
@@ -40,13 +40,15 @@ nmap <C-k> :move +1<CR>
 nmap <C-x> dd
 nmap <C-f> /
 
-nmap <C-c> y
-nmap <C-b> yy
-nmap <C-v> p
+" Toggle relative line numbers
+nmap <C-q> :set rnu!<CR>
 
+" Jump minus plus numbers
 nmap <C-w> :-
 nmap <C-e> :+
 
+" Write/Quit
+nmap <C-s> :w!<CR>
 nmap <C-d> :q!<CR>
 
 autocmd BufEnter * set nowrap
