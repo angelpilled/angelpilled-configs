@@ -48,7 +48,7 @@ nmap <C-e> :+
 
 " Write/Quit
 nmap <C-s> :w!<CR>
-nmap <C-d> :q!<CR>
+nmap <C-p> :q!<CR>
 
 
 autocmd BufEnter * set nowrap
