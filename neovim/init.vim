@@ -42,7 +42,7 @@ nmap <C-f> /
 
 " Toggle relative line numbers
 " Quick tip: Typing in V100gg will select the current line up to and including line 100. This is why toggling relative numbering is needed.
-nmap <C-q> :set rnu!<CR>
+nmap <C-r> :set rnu!<CR>
 
 " Jump minus plus numbers
 nmap <C-w> :-
