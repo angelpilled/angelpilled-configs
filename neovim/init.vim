@@ -1,7 +1,6 @@
 :set number
 :set relativenumber
 :set autoindent
-:set tabstop=4
 :set shiftwidth=4
 :set smarttab
 :set softtabstop=4
@@ -37,8 +36,7 @@ nmap <C-Down> :t.<CR>
 nmap <C-l> :noh<CR>
 nmap <C-i> :move -2<CR>
 nmap <C-k> :move +1<CR>
-nmap <C-x> dd
-nmap <C-f> /
+nmap <C-x> "_dd
 
 " Toggle relative line numbers
 " Quick tip: Typing in V100gg will select the current line up to and including line 100. This is why toggling relative numbering is needed.
