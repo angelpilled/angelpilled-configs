@@ -27,7 +27,7 @@ call plug#end()
 lua require('Comment').setup()
 
 " Editor Theme
-:colorscheme challenger_deep
+:colorscheme gruvbox
 
 nmap <C-t> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFocus<CR>
@@ -48,7 +48,7 @@ nmap <C-e> :+
 
 " Write/Quit
 nmap <C-s> :w!<CR>
-nmap <C-p> :q!<CR>
+nmap <C-d> :q!<CR>
 
 
 autocmd BufEnter * set nowrap
