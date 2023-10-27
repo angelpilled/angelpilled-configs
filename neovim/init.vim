@@ -21,10 +21,12 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/neoclide/coc-pairs'
 Plug 'https://github.com/numToStr/Comment.nvim' " Neovim Commenting
+Plug 'https://github.com/ziontee113/color-picker.nvim'
 
 call plug#end()
 
 lua require('Comment').setup()
+lua require('color-picker').setup()
 
 " Editor Theme
 :colorscheme gruvbox
@@ -50,5 +52,7 @@ nmap <C-e> :+
 nmap <C-s> :w!<CR>
 nmap <C-d> :q!<CR>
 
+" Color Picker
+nmap <C-c> :PickColor<CR>
 
 autocmd BufEnter * set nowrap
