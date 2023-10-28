@@ -7,6 +7,7 @@ vim.o.smarttab = true
 vim.o.softtabstop = 4
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
+vim.o.termguicolors = true
 
 -- Integraing Vimscript to lua with vim.cmd:
 vim.cmd [[
@@ -31,10 +32,22 @@ call plug#end()
 
 -- Plugin Setup
 require('Comment').setup()
-require('color-picker').setup()
 
--- Theme
+require("color-picker").setup({ -- for changing icons & mappings
+	["icons"] = { "■", "" },
+	["border"] = "rounded", -- none | single | double | rounded | solid | shadow
+	["keymap"] = { -- mapping example:
+		["u"] = "<Plug>ColorPickerSlider5Decrease",
+		["o"] = "<Plug>ColorPickerSlider5Increase",
+	},
+	["background_highlight_group"] = "Normal", -- default
+	["border_highlight_group"] = "FloatBorder", -- default
+  ["text_highlight_group"] = "Normal", --default
+})
+
+-- Execute commands on startup
 vim.cmd('colorscheme hybrid')
+vim.cmd([[hi FloatBorder guibg=NONE]])
 
 -- Keymaps
 vim.api.nvim_set_keymap('n', '<C-t>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
@@ -51,6 +64,8 @@ vim.api.nvim_set_keymap('n', '<C-e>', ':+', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-d>', ':q!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-c>', ':PickColor<CR>', { noremap = true, silent = true })
+
+
 
 -- Autocommands - setting nowrap on buffer enter
 vim.api.nvim_create_autocmd('BufEnter', {
