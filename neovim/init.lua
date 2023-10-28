@@ -68,8 +68,8 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeFocus<CR>', { noremap = true, si
 vim.api.nvim_set_keymap('n', '<A-k>', ':t-<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-j>', ':t.<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<A-a>', ':tabprevious<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-s>', ':tabnext<CR>', { noremap = true})
+vim.api.nvim_set_keymap('n', '<A-a>', ':tabprevious<CR>', { noremap = true, silent=true }) 
+vim.api.nvim_set_keymap('n', '<A-s>', ':tabnext<CR>', { noremap = true, silent=true }) 
 vim.api.nvim_set_keymap('n', '<A-n>', ':tabnew<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-r>', ':noh<CR>', { noremap = true, silent = true })
