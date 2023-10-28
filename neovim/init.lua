@@ -32,6 +32,7 @@ Plug 'https://github.com/nvim-telescope/telescope.nvim'
 Plug 'https://github.com/xiyaowong/telescope-emoji.nvim'
 Plug 'https://github.com/MunifTanjim/nui.nvim'
 Plug 'https://github.com/nvim-lua/popup.nvim'
+Plug 'https://github.com/andweeb/presence.nvim'
 
 call plug#end()
 ]]
