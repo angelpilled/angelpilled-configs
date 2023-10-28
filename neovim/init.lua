@@ -20,7 +20,7 @@ Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
-Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/mg979/vim-visual-multi'
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/neoclide/coc-pairs'
@@ -64,21 +64,33 @@ vim.cmd([[hi FloatBorder guibg=NONE]])
 -- Keymaps
 vim.api.nvim_set_keymap('n', '<C-t>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeFocus<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-Up>', ':t-<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-Down>', ':t.<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', ':noh<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-i>', ':move -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', ':move +1<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<A-k>', ':t-<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-j>', ':t.<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<A-a>', ':tabprevious<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<A-s>', ':tabnext<CR>', { noremap = true})
+vim.api.nvim_set_keymap('n', '<A-n>', ':tabnew<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<C-r>', ':noh<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<C-k>', ':move -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', ':move +1<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<C-x>', '"_dd', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-f>', ':set rnu!<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<C-w>', ':-', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-e>', ':+', { noremap = true})
+
 vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-d>', ':q!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-c>', ':PickColor<CR>', { noremap = true})
+
 vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope find_files<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-v>', ':Telescope emoji<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', '"*p', { noremap = true})
+
 vim.api.nvim_set_keymap('n', '<A-q>', ':ChatGPT<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<A-w>', ':ChatGPTActAs<CR>', { noremap = true, silent = true})
 
