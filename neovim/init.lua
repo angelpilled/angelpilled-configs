@@ -79,7 +79,7 @@ vim.api.nvim_set_keymap('n', '<C-k>', ':move -2<CR>', { noremap = true, silent =
 vim.api.nvim_set_keymap('n', '<C-j>', ':move +1<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-x>', '"_dd', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-f>', ':set rnu!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-g>', ':set rnu!<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-w>', ':-', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-e>', ':+', { noremap = true})
@@ -88,7 +88,7 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<C-d>', ':q!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-c>', ':PickColor<CR>', { noremap = true})
 
-vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope find_files<CR>', { noremap = true})
+vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope find_files<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-v>', ':Telescope emoji<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', '"*p', { noremap = true})
 
