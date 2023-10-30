@@ -1,5 +1,5 @@
 # Z Shell
-My zsh config is not really mine; I use Oh My Zsh.<br>
+My zsh config depends on Oh My Zsh. Instructions of plugins I've added to my config can be found below.<br>
 
 ## Plugins used
 - zsh-autosuggestions
