@@ -8,5 +8,5 @@
 "slock"
 Control + Alt + Delete
 
-"scrot -s '/tmp/screenshot.png' -e 'xclip -selection clipboard -target image/png -i $f' && rm /tmp/screenshot.png"
+"maim -s | xclip -selection clipboard -t image/png"
 Print
