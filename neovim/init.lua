@@ -114,7 +114,7 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope file_browser path=%:p:h select
 vim.api.nvim_set_keymap('n', '<C-v>', ':Telescope emoji<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', '"*p', { noremap = true})
 
-vim.api.nvim_set_keymap('n', '<A-w>', ':q:<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-w>', 'q:', { noremap = true, silent = true})
 
 -- Autocommands - setting nowrap on buffer enter
 vim.api.nvim_create_autocmd('BufEnter', {
