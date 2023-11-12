@@ -12,7 +12,7 @@ Control + Alt + Delete
 Print
 
 # Suspend and slock
-"systemctl --user start slock@angelpilled.service && slock"
+"systemctl suspend && slock"
 Control + Alt + End
 
 # Brightness Up
