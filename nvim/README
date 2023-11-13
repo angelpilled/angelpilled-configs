@@ -5,6 +5,7 @@ Requirements:
 + git
 + yarn
 + nodejs
++ npm
 + VimPlug (https://github.com/junegunn/vim-plug)
 
 Configuration installation
