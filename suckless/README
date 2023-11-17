@@ -7,7 +7,7 @@ Requirements:
 + webkit2gtk
 + gcr
 + libavif
-+ iosevka
++ ttf-iosevka-nerd
 + ttf-font-awesome
 
 IMPORTANT!

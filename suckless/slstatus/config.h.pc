@@ -1,5 +1,3 @@
-/* CONFIG FILE FOR PC! NO BATTERY STATUS INCLUDED. */
-
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
@@ -65,11 +63,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	//{ datetime, "%s",           "%F %T" },
-	//{ wifi_perc, "/W: %s%%  ", "wlp1s0f0u8" },	
-	{ run_command, " ^b#242021^^c#1eadd9^ 󰕾 :%4s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-	{ cpu_perc, " ^b#61afef^^c#000000^ CPU  %s%% ", NULL	      },
-	//{ cpu_freq, "// %s/4.2G] ", NULL             },
-	{ ram_used, " ^b#32363e^^c#61afef^ RAM  %s / 16Gi ", NULL	      },
-	{ datetime, " ^b#98c379^^c#000000^ %s ",           "%A, %b %d %r" },
+
+        { run_command,     	"|   %s | ",			        "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1"},
+	{ disk_used,		"Porn folder: %4s | ",			"/" },
+        { uptime,          	"Uptime: %s | ",			NULL },
+        { run_command,     	"Kernel:  %2s | ",			"uname -r | cut -c 1-5"},
+        { cpu_perc,	   	"CPU: %2s%% | ",			NULL },
+	{ ram_used,        	"RAM:  %s / 16 Gi | ",			NULL },
+	{ datetime,        	"%s ",					"%d %h %y - %r" },
 };

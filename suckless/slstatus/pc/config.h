@@ -63,15 +63,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-
-        { run_command,     	"^c#ffffff^ |   %s ^c#ffffff^| ",			"amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1"},
-	{ disk_used,		"^c#ffffff^ Porn folder: %4s ^c#ffffff^| ",		"/" },
-        { uptime,          	"^c#ffffff^ Uptime: %s ^c#ffffff^| ",			NULL },
-        { run_command,     	"^c#e09f26^ Kernel:  %2s ^c#ffffff^| ",			"uname -r | cut -c 1-5"},
-	{ battery_perc,		"^c#3498eb^ BAT0:%s%% ^c#ffffff^| ",			"BAT0"     },
-	{ battery_perc,		"^c#e620aa^ BAT1:%s%% ",				"BAT1"     },
-	{ battery_state,	"^c#ffffff^ %s ^c#ffffff^| ",				"BAT0"    },
-        { cpu_perc,	   	"^c#ffffff^ CPU: %2s%% ^c#ffffff^| ",			NULL },
-	{ ram_used,        	"^c#ffffff^ RAM:  %s / 16 Gi ^c#ffffff^| ",		NULL },
-	{ datetime,        	"^c#ffffff^ %s ",					"%d %h %y - %r" },
+	//{ datetime, "%s",           "%F %T" },
+	//{ wifi_perc, "/W: %s%%  ", "wlp1s0f0u8" },	
+	{ run_command, " ^b#242021^^c#1eadd9^ 󰕾 :%4s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+	{ cpu_perc, " ^b#61afef^^c#000000^ CPU  %s%% ", NULL	      },
+	//{ cpu_freq, "// %s/4.2G] ", NULL             },
+	{ ram_used, " ^b#32363e^^c#61afef^ RAM  %s / 16Gi ", NULL	      },
+	{ datetime, " ^b#98c379^^c#000000^ %s ",           "%A, %b %d %r" },
 };
