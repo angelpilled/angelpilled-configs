@@ -8,6 +8,7 @@ Requirements:
 + gcr
 + libavif
 + iosevka
++ ttf-font-awesome
 
 IMPORTANT!
 If you decide to change fonts, they must be monospaced, otherwise they'll show up with weird letter spacing.

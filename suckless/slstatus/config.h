@@ -64,7 +64,8 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 
-	{ disk_used,		"Porn folder: %s | ",			"/" },
+        { run_command,     	"|   %s | ",			        "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1"},
+	{ disk_used,		"Porn folder: %4s | ",			"/" },
         { uptime,          	"Uptime: %s | ",			NULL },
         { run_command,     	"Kernel:  %2s | ",			"uname -r | cut -c 1-5"},
         { cpu_perc,	   	"CPU: %2s%% | ",			NULL },
