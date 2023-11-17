@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1600;
+const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -64,13 +64,10 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 
-	{ netspeed_rx,     "<\x01 %s",  "enp34s0" },
-	{ netspeed_tx,     "|\x01 %s",  "enp34s0" },
-        { uptime,          "<\x02 %s",  NULL },
-        { run_command,     "<\x03  %2s",    " uname -r" },
-	{ temp,            "<\x04﨎 %2sºC", "/sys/module/k10temp/drivers/pci:k10temp/0000:00:18.3/hwmon/hwmon2/temp3_input" },
-        { cpu_perc,	   "<\x05﬙ %2s%%",  NULL },
-	{ ram_used,        "<\x06  %s",  NULL },
-	{ run_command,     "<\x07%s",    "~/.local/bin/dwmpulse" },
-	{ datetime,        "<\x08  %s",   "%a %b %d - %R" },
+	{ disk_used,		"Porn folder: %s | ",			"/" },
+        { uptime,          	"Uptime: %s | ",			NULL },
+        { run_command,     	"Kernel:  %2s | ",			"uname -r | cut -c 1-5"},
+        { cpu_perc,	   	"CPU: %2s%% | ",			NULL },
+	{ ram_used,        	"RAM:  %s / 16 Gi | ",			NULL },
+	{ datetime,        	"%s ",					"%d %h %y - %r" },
 };
