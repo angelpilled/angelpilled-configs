@@ -1,0 +1,66 @@
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   picom/picom.conf
+	modified:   suckless/dwm/dwm
+	modified:   suckless/dwm/dwm.o
+	modified:   suckless/st/st
+	modified:   suckless/st/x.o
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+	deleted:    suckless/dmenu/dmenu
+	deleted:    suckless/dmenu/dmenu.o
+	deleted:    suckless/dmenu/drw.o
+	deleted:    suckless/dmenu/stest
+	deleted:    suckless/dmenu/stest.o
+	deleted:    suckless/dmenu/util.o
+	deleted:    suckless/dwm/drw.o
+	deleted:    suckless/dwm/dwm
+	deleted:    suckless/dwm/dwm.o
+	deleted:    suckless/dwm/util.o
+	deleted:    suckless/slock/explicit_bzero.o
+	deleted:    suckless/slock/slock
+	deleted:    suckless/slock/slock.o
+	deleted:    suckless/slstatus/components/battery.o
+	deleted:    suckless/slstatus/components/cat.o
+	deleted:    suckless/slstatus/components/cpu.o
+	deleted:    suckless/slstatus/components/datetime.o
+	deleted:    suckless/slstatus/components/disk.o
+	deleted:    suckless/slstatus/components/entropy.o
+	deleted:    suckless/slstatus/components/hostname.o
+	deleted:    suckless/slstatus/components/ip.o
+	deleted:    suckless/slstatus/components/kernel_release.o
+	deleted:    suckless/slstatus/components/keyboard_indicators.o
+	deleted:    suckless/slstatus/components/keymap.o
+	deleted:    suckless/slstatus/components/load_avg.o
+	deleted:    suckless/slstatus/components/netspeeds.o
+	deleted:    suckless/slstatus/components/num_files.o
+	deleted:    suckless/slstatus/components/ram.o
+	deleted:    suckless/slstatus/components/run_command.o
+	deleted:    suckless/slstatus/components/swap.o
+	deleted:    suckless/slstatus/components/temperature.o
+	deleted:    suckless/slstatus/components/uptime.o
+	deleted:    suckless/slstatus/components/user.o
+	deleted:    suckless/slstatus/components/volume.o
+	deleted:    suckless/slstatus/components/wifi.o
+	deleted:    suckless/slstatus/slstatus
+	deleted:    suckless/slstatus/slstatus.o
+	deleted:    suckless/slstatus/util.o
+	deleted:    suckless/st/st
+	deleted:    suckless/st/st.o
+	deleted:    suckless/st/x.o
+	deleted:    suckless/surf/surf
+	deleted:    suckless/surf/surf.o
+	deleted:    suckless/surf/webext-surf.o
+	deleted:    suckless/surf/webext-surf.so
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	deleted.txt
+	suckless/clean.sh
+
