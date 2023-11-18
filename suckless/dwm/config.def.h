@@ -11,8 +11,8 @@ static const unsigned int gappov    = 15;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "ProFont:size=10" };
-static const char dmenufont[]       = "ProFont:size=10";
+static const char *fonts[]          = { "Iosevka Extended:size=15"};
+static const char dmenufont[]       = "Iosevka Extended:size=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#ff00f2";
 static const char col_gray3[]       = "#bbbbbb";
@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -156,4 +156,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
