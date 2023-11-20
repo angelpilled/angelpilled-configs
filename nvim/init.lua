@@ -36,6 +36,7 @@ Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/nvim-neorg/tree-sitter-norg'
 Plug 'https://github.com/nvim-neorg/neorg'
 Plug 'https://github.com/catppuccin/nvim'
 
