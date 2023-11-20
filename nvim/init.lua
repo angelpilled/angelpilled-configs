@@ -9,6 +9,7 @@ vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
 vim.o.textwidth = 100
+vim.opt.fillchars = {eob = " "}
 
 -- Integraing Vimscript to lua with vim.cmd:
 vim.cmd [[
