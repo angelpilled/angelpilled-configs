@@ -36,6 +36,7 @@ Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-neorg/neorg'
+Plug 'https://github.com/catppuccin/nvim'
 
 call plug#end()
 ]]
@@ -57,6 +58,10 @@ require("color-picker").setup({ -- for changing icons & mappings
 
 require("telescope").load_extension("emoji")
 require("telescope").load_extension("file_browser")
+
+require("catppuccin").setup({
+    transparent_background = true
+})
 
 require('neorg').setup {
     load = {
@@ -80,7 +85,7 @@ require('neorg').setup {
 }
 
 -- Execute commands on startup
-vim.cmd('colorscheme PaperColor')
+vim.cmd('colorscheme catppuccin-macchiato')
 vim.cmd([[hi FloatBorder guibg=NONE]])
 
 -- Keymaps
