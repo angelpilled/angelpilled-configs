@@ -64,14 +64,14 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 
-        { run_command,     	"^c#ffffff^ |   %s ^c#ffffff^| ",			"amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1"},
-	{ disk_used,		"^c#ffffff^ Porn folder: %4s ^c#ffffff^| ",		"/" },
-        { uptime,          	"^c#ffffff^ Uptime: %s ^c#ffffff^| ",			NULL },
-        { run_command,     	"^c#e09f26^ Kernel:  %2s ^c#ffffff^| ",			"uname -r | cut -c 1-5"},
-	{ battery_perc,		"^c#3498eb^ BAT0:%s%% ^c#ffffff^| ",			"BAT0"     },
-	{ battery_perc,		"^c#e620aa^ BAT1:%s%% ",				"BAT1"     },
-	{ battery_state,	"^c#ffffff^ %s ^c#ffffff^| ",				"BAT0"    },
-        { cpu_perc,	   	"^c#ffffff^ CPU: %2s%% ^c#ffffff^| ",			NULL },
-	{ ram_used,        	"^c#ffffff^ RAM:  %s / 16 Gi ^c#ffffff^| ",		NULL },
-	{ datetime,        	"^c#ffffff^ %s ",					"%d %h %y - %r" },
+        { run_command,     	"|   %s | ",			"amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1"},
+	{ disk_used,		"Porn folder: %4s | ",		"/" },
+        { uptime,          	"Uptime: %s | ",    		NULL },
+        { run_command,     	"Kernel:  %2s | ",  		"uname -r | cut -c 1-5"},
+	{ battery_perc,		"BAT0:%s%% | ",			"BAT0"     },
+	{ battery_perc,		"BAT1:%s%% ",			"BAT1"     },
+	{ battery_state,	"%s | ",    			"BAT0"    },
+        { cpu_perc,	   	"CPU: %2s%% | ",    		NULL },
+	{ ram_used,        	"RAM:  %s / 16 Gi | ",		NULL },
+	{ datetime,        	"%s ",				"%d %h %y - %r" },
 };
