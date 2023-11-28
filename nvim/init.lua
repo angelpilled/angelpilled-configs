@@ -8,7 +8,6 @@ vim.o.softtabstop = 4
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
-vim.o.textwidth = 100
 vim.opt.fillchars = {eob = " "}
 
 -- Integraing Vimscript to lua with vim.cmd:
@@ -36,7 +35,6 @@ Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
-Plug 'https://github.com/nvim-neorg/tree-sitter-norg'
 Plug 'https://github.com/nvim-neorg/neorg'
 Plug 'https://github.com/catppuccin/nvim'
 
@@ -58,12 +56,12 @@ require("color-picker").setup({ -- for changing icons & mappings
   ["text_highlight_group"] = "Normal", --default
 })
 
+require("catppuccin").setup({
+    transparent_background = true, -- disables setting the background color.
+})
+
 require("telescope").load_extension("emoji")
 require("telescope").load_extension("file_browser")
-
-require("catppuccin").setup({
-    transparent_background = true
-})
 
 require('neorg').setup {
     load = {
@@ -87,7 +85,7 @@ require('neorg').setup {
 }
 
 -- Execute commands on startup
-vim.cmd('colorscheme catppuccin-macchiato')
+vim.cmd('colorscheme catppuccin-frappe')
 vim.cmd([[hi FloatBorder guibg=NONE]])
 
 -- Keymaps
@@ -109,9 +107,9 @@ vim.api.nvim_set_keymap('n', '<C-j>', ':move +1<CR>', { noremap = true, silent =
 vim.api.nvim_set_keymap('n', '<C-x>', '"_dd', { noremap = true, silent = true })
 
 
-vim.api.nvim_set_keymap('n', '<C-g>', ':set rnu!<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-w>', ':-', { noremap = true})
-vim.api.nvim_set_keymap('n', '<C-e>', ':+', { noremap = true})
+vim.api.nvim_set_keymap('n', '<A-g>', ':set rnu!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-w>', ':-', { noremap = true})
+vim.api.nvim_set_keymap('n', '<A-e>', ':+', { noremap = true})
 
 vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-d>', ':q!<CR>', { noremap = true, silent = true })
@@ -122,7 +120,18 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope file_browser path=%:p:h select
 vim.api.nvim_set_keymap('n', '<C-v>', ':Telescope emoji<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', '"*p', { noremap = true})
 
-vim.api.nvim_set_keymap('n', '<A-w>', 'q:', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-q>', 'q:', { noremap = true, silent = true})
+
+-- Splits
+vim.api.nvim_set_keymap('n', '<A-Left>', '<C+w>h', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-Right>', '<C+w>l', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-Up>', '<C+w>k', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-Down>', '<C+w>j', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<m<Left>', ':resize -3', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<m<Right>', ':resize +3', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<m<Up>', ':vertical resize -3', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<m<Down>', ':vertical resize +3', { noremap = true, silent = true})
 
 -- Autocommands - setting nowrap on buffer enter
 vim.api.nvim_create_autocmd('BufEnter', {
