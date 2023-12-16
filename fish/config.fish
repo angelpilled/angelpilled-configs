@@ -2,6 +2,12 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+function !!
+    eval sudo $history[1]
+end
+
+set fish_greeting
+
 function fish_prompt
 	set_color FF5FD7; echo -n (whoami);
 	set_color FFFFFF; echo -n ' at ';
