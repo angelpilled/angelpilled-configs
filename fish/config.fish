@@ -22,7 +22,7 @@ alias grep='grep --color=auto'
 # Beautifying commands
 alias neofetch='neofetch | dotacat'
 alias cow='fortune | cowsay'
-alias startx='startx > /dev/null 2>&1'
+alias startx='start-de.sh'
 
 # Utilities
 alias cpc='xclip -sel c <'

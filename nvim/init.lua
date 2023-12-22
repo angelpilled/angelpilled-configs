@@ -37,6 +37,7 @@ Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-neorg/neorg'
 Plug 'https://github.com/catppuccin/nvim'
+Plug 'https://github.com/lukas-reineke/headlines.nvim'
 
 call plug#end()
 ]]
@@ -83,6 +84,8 @@ require('neorg').setup {
         },
     },
 }
+
+require("headlines").setup()
 
 -- Execute commands on startup
 vim.cmd('colorscheme catppuccin-frappe')

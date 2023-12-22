@@ -1,0 +1,8 @@
+#!/bin/sh
+
+feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/starship.jpg
+slstatus &
+xbindkeys
+picom --config /etc/xdg/picom.conf --no-fading-openclose &
+~/.screenlayout/3m.sh
+exec dwm

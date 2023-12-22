@@ -1,13 +1,20 @@
 #!/bin/bash
 # This shell script will build all the suckless files I use.
 
+platform=$1
+platform=${platform,,}
+
+if [[ $platform != "pc" && $platform != "laptop" ]]; then
+    echo $platform
+    echo "Please provide (pc) or (laptop) as an argument on calling build.sh"
+    exit
+fi
+
 echo -e "Dependencies will be installed if they are needed...\n"
 sudo pacman -S --needed --noconfirm make gcc libavif gcr webkit2gtk
 yay -S --needed --noconfirm ttf-iosevka ttf-font-awesome
 
 echo -e
-read -p "Will you be using suckless software on PC or laptop? (pc/laptop) " platform
-platform=${platform,,}
 
 if [ $platform == "laptop" ]; then
     sudo cp ./dwm/config.h.x260 ./dwm/config.h
