@@ -10,6 +10,13 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
 vim.opt.fillchars = {eob = " "}
 
+-- Delete junk LaTeX files after exiting .tex documents in Neovim
+vim.api.nvim_create_autocmd("QuitPre", {
+    pattern = "*",
+    -- command = "silent !rm *.log *.aux *.synctex.gz *.fls *.fdb_latexmk > /dev/null 2>&1"
+    command = ":silent !rm *.log *.aux *.synctex.gz *.fls *.fdb_latexmk > /dev/null 2>&1"
+})
+
 -- Integraing Vimscript to lua with vim.cmd:
 vim.cmd [[
 call plug#begin()
@@ -36,8 +43,12 @@ Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/nvim-neorg/neorg'
+Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/catppuccin/nvim'
 Plug 'https://github.com/lukas-reineke/headlines.nvim'
+Plug 'https://github.com/folke/zen-mode.nvim'
+Plug 'https://github.com/lervag/vimtex'
+Plug 'https://github.com/neoclide/coc-vimtex'
 
 call plug#end()
 ]]
@@ -56,6 +67,31 @@ require("color-picker").setup({ -- for changing icons & mappings
 	["border_highlight_group"] = "FloatBorder", -- default
   ["text_highlight_group"] = "Normal", --default
 })
+
+require("presence").setup({
+    -- General options
+    auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+    neovim_image_text   = "Neovim",		      -- Text displayed when hovered over the Neovim image
+    main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
+    --
+    -- Rich Presence text options
+    editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+    file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+    reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+    workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+    line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+})
+
+-- VimTex configuration
+
+vim.cmd([[
+filetype plugin indent on
+syntax enable
+let g:vimtex_view_method = 'zathura'
+]])
+
+
+-- catppuccin config
 
 require("catppuccin").setup({
     transparent_background = true, -- disables setting the background color.

@@ -33,7 +33,9 @@ promptUser() {
 echo -e "Welcome! This little script will install all the necessary configs to your system."
 
 machine=$(promptUser "First of all, tell me if you'll be using a (laptop) or a (pc): " "laptop pc")
-wm=$(promptUser "Will you be using (dwm), (kde), or (both)?: " "dwm kde both")
+wm=$(promptUser "Will you be using (dwm), (kde), or (both)?: " "dwm kde both none")
+
+pacmanRetVal xorg
 
 ## Start installing/copying configs
 # Bash
@@ -67,6 +69,7 @@ case $machine in
 esac
 
 # window managers/desktop environments and xinitrc
+
 case $wm in
     kde)
 	sudo pacman -S --needed --noconfirm plasma kde-applications
@@ -80,6 +83,9 @@ case $wm in
 	cd ./suckless/ && ./build.sh $machine && cd $WORKDIR
 	sudo pacman -S --needed --noconfirm plasma kde-applications
 	sudo cp ./xinitrc/xinitrc-kde ~/.xinitrc-kde && sudo cp ./xinitrc/xinitrc-dwm ~/.xinitrc-dwm
+	;;
+    none)
+	continue
 	;;
 esac
 
@@ -95,11 +101,11 @@ mkdir -p ~/.config/nvim
 cp ./nvim/init.lua ~/.config/nvim/init.lua
 cp ./nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
-echo -e "Setting up web-development language servers"
+echo -e "Setting up language servers"
 nvim +PlugInstall +qall
 cd ~/.local/share/nvim/plugged/coc.nvim && yarn install && yarn build
 cd $WORKDIR
-nvim temp.html "+CocInstall coc-pairs coc-html coc-css coc-tsserver" +qall
+nvim temp.html "+CocInstall coc-pairs coc-sh coc-html coc-css coc-tsserver" +qall
 mkdir -p ~/.config/coc/extensions
 cd ~/.config/coc/extensions
 curl -LO "https://github.com/clangd/clangd/releases/download/17.0.3/clangd-linux-17.0.3.zip"

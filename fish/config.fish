@@ -28,14 +28,16 @@ alias startx='start-de.sh'
 alias cpc='xclip -sel c <'
 alias c='clear'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+export EDITOR=nvim
 
 # "Short"cuts
 alias nv='nvim'
-alias yt-dlp-mp3='yt-dlp -x --audio-format mp3'
-alias yt-dlp-mp4='yt-dlp -x --format mp4 -k'
+alias yt-dlp-mp3='yt-dlp --downloader aria2c -x --audio-format mp3'
+alias yt-dlp-mp4='yt-dlp --downloader aria2c -x --format mp4 -k'
 
 # Fun commands
 alias bad-apple='cvlc -V aa -q --no-video-title-show bad-apple.mp4'
 
 # Typos
 alias gti='git'
+alias sl='ls'
