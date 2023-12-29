@@ -105,7 +105,7 @@ echo -e "Setting up language servers"
 nvim +PlugInstall +qall
 cd ~/.local/share/nvim/plugged/coc.nvim && yarn install && yarn build
 cd $WORKDIR
-nvim temp.html "+CocInstall coc-pairs coc-sh coc-html coc-css coc-tsserver" +qall
+nvim temp.html "+CocInstall coc-pairs coc-sh coc-html coc-css coc-tsserver coc-pyright coc-vimtex" +qall
 mkdir -p ~/.config/coc/extensions
 cd ~/.config/coc/extensions
 curl -LO "https://github.com/clangd/clangd/releases/download/17.0.3/clangd-linux-17.0.3.zip"
