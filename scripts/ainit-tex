@@ -1,0 +1,47 @@
+#!/bin/sh
+
+[  ]
+
+cat <<EOF > ./document.tex
+\documentclass[14pt]{extarticle}
+\linespread{1.5}
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{1.1ex} % Sets line height and indentation
+
+\usepackage{graphicx,caption,float,textcomp,mathcomp,fancyhdr,nameref} % Imports math and header/footer packages
+\usepackage[margin=1in]{geometry} % Beautiful margin
+% \usepackage[magyar]{babel}
+\graphicspath{ {./imgs/} }
+
+% This whole section redesigns the headers and footers
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{~\thesection . chapter}
+\chead{\currentname}
+\lhead{\thepage}
+\lfoot{\today}
+\cfoot{\thepage}
+\rfoot{User}
+
+\title{Sample}
+\author{User}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%% Displays an image on the document
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.25]{imgs/sample.png}
+% \end{figure}
+
+\pagenumbering{gobble}
+
+\end{document}
+EOF
+
+mkdir ./imgs && touch ./imgs/sample.png
