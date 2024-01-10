@@ -10,3 +10,5 @@ body {
     padding: 0;
 }
 EOF
+
+echo -e "CSS file initialized."

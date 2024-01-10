@@ -16,3 +16,5 @@ cat <<EOF > index.html
     </body>
 </html>
 EOF
+
+echo -e "HTML file initialized."

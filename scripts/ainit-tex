@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[  ]
-
 cat <<EOF > ./document.tex
 \documentclass[14pt]{extarticle}
 \linespread{1.5}
@@ -45,3 +43,5 @@ cat <<EOF > ./document.tex
 EOF
 
 mkdir ./imgs && touch ./imgs/sample.png
+
+echo -e "Latex project files were initialized."

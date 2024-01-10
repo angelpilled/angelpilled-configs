@@ -35,3 +35,5 @@ console.log("Hello World!");
 EOF
 
 touch ./imgs/sample.png
+
+echo -e "Web project files were initialized."
