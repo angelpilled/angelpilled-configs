@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -rf ~/.bash_history
+rm -rf ~/.local/share/fish/fish_history
