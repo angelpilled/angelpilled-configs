@@ -116,7 +116,7 @@ cd ./scripts
 if [ $machine == "laptop" ]; then
     sudo cp bnd bnu /usr/local/bin
 fi
-sudo cp start-de.sh webcam webcam-off webcam-on gc ainit-tex ainit-html ainit-css ainit-web /usr/local/bin
+sudo cp start-de.sh webcam webcam-off webcam-on gc ainit /usr/local/bin
 
 echo -e
 echo -e "----------------------------------"
