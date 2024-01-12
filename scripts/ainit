@@ -1,0 +1,157 @@
+#!/bin/sh
+
+# Website initialization
+webInit() 
+{
+cat <<EOF > index.html
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{Document Title}</title>
+	<link rel="stylesheet" href="/style.css">
+	<!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+    </head>
+    <body>
+	<script src="/scripts/index.js"></script>
+    </body>
+</html>
+EOF
+
+mkdir -p css imgs scripts
+
+cat <<EOF > ./css/style.css
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+EOF
+
+cat <<EOF > ./scripts/index.js
+console.log("Hello World!");
+EOF
+
+touch ./imgs/sample.png
+
+echo -e "Web project files were initialized."
+}
+# Website initialization end
+
+# HTML initialization
+htmlInit()
+{
+cat <<EOF > index.html
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{Document Title}</title>
+	<link rel="stylesheet" href="/style.css">
+	<!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+    </head>
+    <body>
+	<script src="/scripts/index.js"></script>
+    </body>
+</html>
+EOF
+
+echo -e "HTML file initialized."
+}
+# HTML initialization end
+
+# CSS initialization
+cssInit()
+{
+cat <<EOF > style.css
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+EOF
+echo -e "CSS file initialized."
+}
+# CSS initialization end
+
+# Tex project initialization
+texInit()
+{
+cat <<EOF > ./document.tex
+\documentclass[14pt]{extarticle}
+\linespread{1.5}
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{1.1ex} % Sets line height and indentation
+
+\usepackage{graphicx,caption,float,textcomp,mathcomp,fancyhdr,nameref} % Imports math and header/footer packages
+\usepackage[margin=1in]{geometry} % Beautiful margin
+% \usepackage[magyar]{babel}
+\graphicspath{ {./imgs/} }
+
+% This whole section redesigns the headers and footers
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{~\thesection . chapter}
+\chead{\currentname}
+\lhead{\thepage}
+\lfoot{\today}
+\cfoot{\thepage}
+\rfoot{User}
+
+\title{Sample}
+\author{User}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%% Displays an image on the document
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.25]{imgs/sample.png}
+% \end{figure}
+
+\pagenumbering{gobble}
+
+\end{document}
+EOF
+
+mkdir ./imgs && touch ./imgs/sample.png
+
+echo -e "Latex project files were initialized."
+}
+
+case $1 in
+    "web")
+	webInit
+	;;
+
+    "html")
+	htmlInit
+	;;
+    "css")
+	cssInit
+	;;
+    "tex")
+	texInit
+	;;
+    "help")
+	echo -e "Available arguments:\nweb | html | css | tex"
+	;;
+    *)
+	echo -e "Please provide a valid argument. Type help as an argument to get all the available options."
+	;;
+esac
