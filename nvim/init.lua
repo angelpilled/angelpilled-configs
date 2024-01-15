@@ -49,6 +49,7 @@ Plug 'https://github.com/lukas-reineke/headlines.nvim'
 Plug 'https://github.com/folke/zen-mode.nvim'
 Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/neoclide/coc-vimtex'
+Plug 'https://github.com/derektata/lorem.nvim'
 
 call plug#end()
 ]]
