@@ -54,7 +54,7 @@ cat <<EOF > index.html
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>{Document Title}</title>
-	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
     </head>
     <body>
@@ -88,50 +88,64 @@ echo -e "CSS file initialized."
 texInit()
 {
 cat <<EOF > ./document.tex
-\documentclass[14pt]{extarticle}
+
+\documentclass[12pt]{article}
 \linespread{1.5}
 \setlength{\parindent}{0.5in}
-\setlength{\parskip}{1.1ex} % Sets line height and indentation
+\setlength{\parskip}{1.1ex}
 
-\usepackage{graphicx,caption,float,textcomp,mathcomp,fancyhdr,nameref} % Imports math and header/footer packages
-\usepackage[margin=1in]{geometry} % Beautiful margin
-% \usepackage[magyar]{babel}
+\usepackage{graphicx,caption,float,textcomp,mathcomp,fancyhdr,nameref,amsmath} % Csomag importálás
+\usepackage{mathptmx}
+\usepackage[margin=1in]{geometry} % Szép margót állít
 \graphicspath{ {./imgs/} }
 
-% This whole section redesigns the headers and footers
 \makeatletter
 \newcommand*{\currentname}{\@currentlabelname}
+\renewcommand{\contentsname}{Tartalomjegyzék}
+\renewcommand{\today}{0000. hónap 1.}
 \makeatother
+
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{~\thesection . chapter}
+
+\rhead{~\thesection . fejezet}
 \chead{\currentname}
 \lhead{\thepage}
+
+\setlength{\headheight}{20.0pt}
+
 \lfoot{\today}
 \cfoot{\thepage}
-\rfoot{User}
+\rfoot{Gyenes Béla}
 
-\title{Sample}
-\author{User}
+\title{Cím}
+\author{Gyenes Béla}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-%% Displays an image on the document
+\pagenumbering{gobble}
+
 % \begin{figure}[H]
 %     \centering
-%     \includegraphics[scale=0.25]{imgs/sample.png}
+%     \includegraphics[scale=0.25]{imgs/feketelyuk.png}
 % \end{figure}
 
-\pagenumbering{gobble}
+\pagebreak
+
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+
+\pagebreak
 
 \end{document}
 EOF
 
 mkdir ./imgs && touch ./imgs/sample.png
 
-echo -e "Latex project files were initialized."
+echo -e "LaTeX project files were initialized."
 }
 
 case $1 in
