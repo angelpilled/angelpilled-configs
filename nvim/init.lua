@@ -22,6 +22,7 @@ vim.cmd [[
 call plug#begin()
 
 Plug 'https://github.com/preservim/nerdtree'
+Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
@@ -30,7 +31,6 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/mg979/vim-visual-multi'
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/neoclide/coc-pairs'
 Plug 'https://github.com/numToStr/Comment.nvim' " Neovim Commenting
 Plug 'https://github.com/ziontee113/color-picker.nvim'
@@ -50,6 +50,7 @@ Plug 'https://github.com/folke/zen-mode.nvim'
 Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/neoclide/coc-vimtex'
 Plug 'https://github.com/derektata/lorem.nvim'
+Plug 'https://github.com/mfussenegger/nvim-dap'
 
 call plug#end()
 ]]
@@ -123,6 +124,12 @@ require('neorg').setup {
 }
 
 require("headlines").setup()
+
+vim.api.nvim_create_autocmd({ "VimLeave" }, {
+  callback = function()
+    vim.fn.jobstart('notify-send "hello"', {detach=true})
+  end,
+})
 
 -- Execute commands on startup
 vim.cmd('colorscheme catppuccin-frappe')

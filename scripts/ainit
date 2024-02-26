@@ -96,6 +96,8 @@ cat <<EOF > ./document.tex
 
 \usepackage{graphicx,caption,float,textcomp,mathcomp,fancyhdr,nameref,amsmath} % Csomag importálás
 \usepackage{mathptmx}
+% \usepackage[magyar]{babel}
+% \usepackage{t1enc}
 \usepackage[margin=1in]{geometry} % Szép margót állít
 \graphicspath{ {./imgs/} }
 

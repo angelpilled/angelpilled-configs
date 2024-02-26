@@ -37,7 +37,27 @@ alias yt-dlp-mp4='yt-dlp --downloader aria2c -x --format mp4 -k'
 
 # Fun commands
 alias bad-apple='cvlc -V aa -q --no-video-title-show bad-apple.mp4'
+alias please='sudo'
 
 # Typos
 alias gti='git'
 alias sl='ls'
+
+function r
+    # Define a temporary file to store the last visited directory
+    set -l tempfile '/tmp/ranger_cd_'.(id -u)
+
+    # Launch ranger and tell it to write the last visited directory to the tempfile
+    ranger --choosedir=$tempfile $argv
+    # Check if the tempfile exists and is not empty
+    if test -s $tempfile
+        # Read the directory from the tempfile
+        set -l lastdir (cat $tempfile)
+        # Change to the directory
+        cd $lastdir
+        # Optionally, clean up by removing the tempfile
+        command rm -f $tempfile
+    end
+end
+
+set -U fish_user_paths ~/.dotnet/tools $fish_user_paths
