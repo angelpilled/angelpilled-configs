@@ -92,7 +92,7 @@ esac
 # Neovim
 echo -e "Installing neovim now..."
 echo -e "Checking for dependencies and installing if necessary..."
-sudo pacman -S --needed --noconfirm neovim yarn nodejs npm
+sudo pacman -S --needed --noconfirm neovim yarn nodejs npm deno
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -110,8 +110,12 @@ mkdir -p ~/.config/coc/extensions
 cd ~/.config/coc/extensions
 curl -LO "https://github.com/clangd/clangd/releases/download/17.0.3/clangd-linux-17.0.3.zip"
 unzip -o clangd-linux-17.0.3.zip && rm -rf clangd-linux-17.0.3.zip
+
+echo -e "Setting up peek.nvim with deno"
+cd ~/.local/share/nvim/plugged/peek.nvim && deno task build:debug
 cd $WORKDIR
 
+# Scripts
 cd ./scripts
 if [ $machine == "laptop" ]; then
     sudo cp bnd bnu /usr/local/bin
