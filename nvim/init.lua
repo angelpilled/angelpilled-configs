@@ -51,9 +51,18 @@ Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/neoclide/coc-vimtex'
 Plug 'https://github.com/derektata/lorem.nvim'
 Plug 'https://github.com/mfussenegger/nvim-dap'
+Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'https://github.com/chriskempson/base16-vim'
+Plug 'https://github.com/hrsh7th/nvim-cmp'
+Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
+Plug 'https://github.com/L3MON4D3/LuaSnip'
+Plug 'https://github.com/saadparwaiz1/cmp_luasnip'
+Plug 'https://github.com/toppair/peek.nvim'
 
 call plug#end()
 ]]
+
+
 
 -- Plugin Setup
 require('Comment').setup()
@@ -84,6 +93,32 @@ require("presence").setup({
     line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
 })
 
+-- peek.nvim configuration
+require('peek').setup({
+  auto_load = true,         -- whether to automatically load preview when
+                            -- entering another markdown buffer
+  close_on_bdelete = true,  -- close preview window on buffer delete
+
+  syntax = true,            -- enable syntax highlighting, affects performance
+
+  theme = 'dark',           -- 'dark' or 'light'
+
+  update_on_change = true,
+
+  app = 'browser',          -- 'webview', 'browser', string or a table of strings
+                            -- explained below
+
+  filetype = { 'markdown' },-- list of filetypes to recognize as markdown
+
+  -- relevant if update_on_change is true
+  throttle_at = 200000,     -- start throttling when file exceeds this
+                            -- amount of bytes in size
+  throttle_time = 'auto',   -- minimum amount of time in milliseconds
+                            -- that has to pass before starting new render
+})
+
+vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
 -- VimTex configuration
 
 vim.cmd([[
@@ -92,6 +127,40 @@ syntax enable
 let g:vimtex_view_method = 'zathura'
 ]])
 
+-- Godot configuration
+local cmp = require'cmp'
+local nvim_lsp = require('lspconfig')
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require'luasnip'.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-1),
+    ['<C-f>'] = cmp.mapping.scroll_docs(1),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  })
+})
+
+require'lspconfig'.gdscript.setup{}
+
+-- Set up C# LSP
+nvim_lsp.omnisharp.setup{
+    cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) };
+}
+
+-- coc keybinds config
+-- Confirm completion
+vim.api.nvim_set_keymap('i', '<CR>', 'pumvisible() ? coc#_select_confirm() : "\\<CR>"', {expr = true, noremap = true})
 
 -- catppuccin config
 
@@ -132,7 +201,7 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 })
 
 -- Execute commands on startup
-vim.cmd('colorscheme catppuccin-frappe')
+vim.cmd('colorscheme base16-atelier-cave')
 vim.cmd([[hi FloatBorder guibg=NONE]])
 
 -- Keymaps

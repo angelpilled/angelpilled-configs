@@ -6,7 +6,19 @@
 # Version: 1.8.7
 
 "slock"
-Control + Alt + Delete
+Shift + Alt + End
+
+"st htop"
+Alt + Shift + Delete
 
 "maim -s | xclip -selection clipboard -t image/png"
 Print
+
+"xkill"
+Alt + Shift + x
+
+"setxkbmap ru"
+m:0xc + c:59
+
+"setxkbmap hu"
+m:0xc + c:60
