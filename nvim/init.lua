@@ -201,7 +201,7 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 })
 
 -- Execute commands on startup
-vim.cmd('colorscheme base16-atelier-cave')
+vim.cmd('colorscheme catppuccin')
 vim.cmd([[hi FloatBorder guibg=NONE]])
 
 -- Keymaps
