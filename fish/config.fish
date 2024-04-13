@@ -9,18 +9,20 @@ end
 set fish_greeting
 
 function fish_prompt
-	set_color FF5FD7; echo -n (whoami);
-	set_color FFFFFF; echo -n ' at ';
-	set_color 00AFFA; echo -n (uname -n) "in";
-	set_color FFD7AF; echo -n " "; echo (pwd | sed "s|^$HOME|~|");
-	set_color FFFFFF; echo '$ '
+	set_color 00FFFF; printf (whoami);
+	set_color 00FFFF; printf '@';
+	set_color 00FFFF; printf (uname -n);
+	set_color FFFFFF; printf ":["; printf (pwd | sed "s|^$HOME|~|"); printf "]";
+	set_color FFFFFF; printf '\n$ ';
 end
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # Beautifying commands
-alias neofetch='neofetch | dotacat'
+alias neofetch='fastfetch'
+alias nf='fastfetch'
+alias ff='fastfetch'
 alias cow='fortune | cowsay'
 alias startx='start-de.sh'
 
@@ -40,6 +42,7 @@ alias rofimoji='rofimoji --action copy'
 # Fun commands
 alias bad-apple='cvlc -V aa -q --no-video-title-show bad-apple.mp4'
 alias please='sudo'
+alias bitch='git'
 
 # Typos
 alias gti='git'

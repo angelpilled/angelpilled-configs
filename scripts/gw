@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "$(shuf -n 32 /usr/share/wordlists/wfuzz/general/big.txt --random-source=/dev/urandom | tr '\n' ' ')"
