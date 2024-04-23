@@ -42,7 +42,6 @@ Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
-Plug 'https://github.com/nvim-neorg/neorg'
 Plug 'https://github.com/andweeb/presence.nvim'
 Plug 'https://github.com/catppuccin/nvim'
 Plug 'https://github.com/lukas-reineke/headlines.nvim'
@@ -51,18 +50,16 @@ Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/neoclide/coc-vimtex'
 Plug 'https://github.com/derektata/lorem.nvim'
 Plug 'https://github.com/mfussenegger/nvim-dap'
-Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/chriskempson/base16-vim'
 Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
 Plug 'https://github.com/L3MON4D3/LuaSnip'
 Plug 'https://github.com/saadparwaiz1/cmp_luasnip'
 Plug 'https://github.com/toppair/peek.nvim'
+Plug 'https://github.com/neovim/nvim-lspconfig'
 
 call plug#end()
 ]]
-
-
 
 -- Plugin Setup
 require('Comment').setup()
@@ -151,11 +148,21 @@ cmp.setup({
   })
 })
 
+require'lspconfig'.julials.setup{
+    on_new_config = function(new_config, _)
+        local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+        if require'lspconfig'.util.path.is_file(julia) then
+        -- vim.notify("Hello!")
+            new_config.cmd[1] = julia
+        end
+    end
+}
+
 require'lspconfig'.gdscript.setup{}
 
--- Set up C# LSP
-nvim_lsp.omnisharp.setup{
-    cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) };
+-- C# LSP config with nvim lspconfig
+require'lspconfig'.csharp_ls.setup{
+    cmd = { "/home/anon/.dotnet/tools/csharp-ls" };
 }
 
 -- coc keybinds config
@@ -170,27 +177,6 @@ require("catppuccin").setup({
 
 require("telescope").load_extension("emoji")
 require("telescope").load_extension("file_browser")
-
-require('neorg').setup {
-    load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.neorgcmd"] = {},
-        ["core.autocommands"] = {},
-        ["core.highlights"] = {},
-        ["core.mode"] = {},
-        ["core.integrations.treesitter"] = {},
-        ["core.export"] = {}, -- Loads export module
-        ["core.export.markdown"] = {}, -- Loads export markdown module
-        ["core.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-                workspaces = {
-                    notes = "~/notes",
-                },
-            },
-        },
-    },
-}
 
 require("headlines").setup()
 
