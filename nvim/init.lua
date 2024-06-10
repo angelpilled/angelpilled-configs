@@ -5,10 +5,10 @@ vim.o.autoindent = true
 vim.o.shiftwidth = 4
 vim.o.smarttab = true
 vim.o.softtabstop = 4
-vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
 vim.opt.fillchars = {eob = " "}
+vim.opt.mouse = ""
 
 -- Delete junk LaTeX files after exiting .tex documents in Neovim
 vim.api.nvim_create_autocmd("QuitPre", {
@@ -57,9 +57,43 @@ Plug 'https://github.com/L3MON4D3/LuaSnip'
 Plug 'https://github.com/saadparwaiz1/cmp_luasnip'
 Plug 'https://github.com/toppair/peek.nvim'
 Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
+
+nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+
+let g:magma_automatically_open_output = v:false
+let g:magma_image_provider = "ueberzug"
+
 ]]
+
+function MagmaInitPython()
+    vim.cmd[[
+    :MagmaInit python3
+    :MagmaEvaluateArgument a=5
+    ]]
+end
+
+function MagmaInitCSharp()
+    vim.cmd[[
+    :MagmaInit .net-csharp
+    :MagmaEvaluateArgument Microsoft.DotNet.Interactive.Formatting.Formatter.SetPreferredMimeTypesFor(typeof(System.Object),"text/plain");
+    ]]
+end
+
+function MagmaInitFSharp()
+    vim.cmd[[
+    :MagmaInit .net-fsharp
+    :MagmaEvaluateArgument Microsoft.DotNet.Interactive.Formatting.Formatter.SetPreferredMimeTypesFor(typeof<System.Object>,"text/plain")
+    ]]
+end
+
 
 -- Plugin Setup
 require('Comment').setup()
@@ -187,7 +221,7 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 })
 
 -- Execute commands on startup
-vim.cmd('colorscheme spacecamp')
+vim.cmd('colorscheme catppuccin')
 vim.cmd([[hi FloatBorder guibg=NONE]])
 
 -- Keymaps

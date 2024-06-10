@@ -40,13 +40,16 @@ alias yt-dlp-mp4-date='yt-dlp -o "%(upload_date>%Y-%m-%d)s %(title)s.%(ext)s" --
 alias rofimoji='rofimoji --action copy'
 
 # Fun commands
-alias bad-apple='cvlc -V aa -q --no-video-title-show bad-apple.mp4'
+alias bad-apple='cvlc -V aa -q --no-video-title-show ~/Videos/bad-apple.mp4'
 alias please='sudo'
 alias bitch='git'
 
 # Typos
 alias gti='git'
 alias sl='ls'
+
+# Binds
+bind \eo append_and_disown
 
 function r
     # Define a temporary file to store the last visited directory
@@ -63,6 +66,11 @@ function r
         # Optionally, clean up by removing the tempfile
         command rm -f $tempfile
     end
+end
+
+function append_and_disown
+    set -l current_command (commandline -b)
+    commandline -r "$current_command & disown"
 end
 
 set -U fish_user_paths ~/.dotnet/tools $fish_user_paths
